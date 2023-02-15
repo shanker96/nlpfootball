@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ 	<title></title>
+ 	<style type="text/css">
+    .background{
+          position: fixed;
+          z-index: -1000;
+          width: 100%;
+          height: 120%;
+          overflow: hidden;
+          top: 0;
+          left: 0;
+    }
+
+    #background-video{
+          position: absolute;
+          top: 0;
+          left: 0;
+          min-height: 100%;
+          min-width: 100%;
+
+
+
+   }
+
+  /*.team_select{
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.7);
+  }*/
+     </style>
+ </head>
+ <body>
+    <?php
+	
+	$fp = fopen("results.txt", "r");
+
+    //echo '<p align="center">'.show_ad("location=top468x60").'</p>';
+    $message = nl2br(file_get_contents("results.txt"));
+	echo "<p style='position: absolute;color:white; font-size: 22px;text-align:center;top: 10%;left: 50%; margin-left: -170px;
+  width: 25%;' align=center>$message</p> ";
+	fclose($fp);
+  $fp = fopen("results.txt","w");
+  file_put_contents("results.txt", " ");
+  fclose($fp);
+     
+     //echo '<div style="text-align: center;>$message</div>'; 
+    //echo $message;
+
+   
+  ?>
+    <div class="background">
+     <img id="background-video" src="Real-Madrid-HD-Picture-Wallpapers (1).jpeg" >
+
+      </div>
+     <form  class="team_select">
+        <p style="text-align:center;color:red;font-size:30px" >The results of the match: </p>
+       
+     </form>
+   
+
+ </body>
+ </html>
+  
+Display result page :
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+  <style type="text/css">
+button{
+   position: absolute;
+   font-family:helvetica;
+    background: #587286;
+  margin:auto;
+  display:block;
+  text-align: center;
+  top: 20%;
+  left: 50%;
+  margin-left: -125px;
+  width: 25%; 
+  
+}
+     .background{
+          position: fixed;
+          z-index: -1000;
+          width: 100%;
+          height: 120%;
+          overflow: hidden;
+          top: 0;
+          left: 0;
+    }
+
+    #background-video{
+          position: absolute;
+          top: 0;
+          left: 0;
+          min-height: 100%;
+          min-width: 100%;
+
+
+
+   }
+  </style>
+</head>
+<body >
+<div class="background">
+     <img id="background-video" src="Real-Madrid-HD-Picture-Wallpapers (1).jpeg" >
+      </div>   
+  <form action="/miniproj/result.php" method="post">   
+        <button onclick="result.php" >Show results</button>
+  </form>
+</body>
+</html>

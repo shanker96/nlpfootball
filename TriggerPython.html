@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Call_python</title>
+</head>
+<body>
+    <?php
+    //echo "good";
+   	
+   $pythonpath = 'C:/Python33/python.exe';
+   //$filepath = "C:\\studies\\xampp\\htdocs\\output.txt";		
+   $pyscript = 'C:/studies/xampp/htdocs/pythonfinalchanged.py';
+   //$cmd = "$pythonpath $pyscript $filepath";
+   $command = escapeshellcmd('C:/studies/xampp/htdocs/miniproj/pythonfinalchanged.py');
+   $outpt = shell_exec($command);
+   //echo $outpt;
+   /*foreach ($output as $arr) {
+     echo $arr;
+   	      }
+  */
+   	header('Location:/miniproj/result.html');
+ 		
+
+    ?> 
+
+</body>
+</html>

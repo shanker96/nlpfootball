@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Player select </title>
+	<style type="text/css">
+     .background{
+          position: fixed;
+          z-index: -1000;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          top: 0;
+          left: 0;
+    }
+
+    #background-video{
+          position: absolute;
+          top: 0;
+          left: 0;
+          min-height: 100%;
+          min-width: 100%;
+
+     }
+
+     .team_select{
+          position: absolute;
+          width: 100%;
+          min-height: 100%;
+          z-index: 1000;
+          background-color: rgba(0,0,0,0.7);
+     }
+     .team_select{
+          
+          color: #fff;
+     }
+
+
+
+
+
+     </style>
+
+
+</head>
+<body>
+
+ <?php
+   if(isset($_POST['Submit'])){
+      if(!empty($_POST['spurs'])){
+          $fp_spurs = fopen("spurs.txt", "w");
+          file_put_contents("spurs.txt", " ");
+
+          fclose($fp_spurs);
+          $fp_spurs = fopen("spurs.txt", "as");
+          
+          foreach ($_POST['spurs'] as $team_spurs) {
+             $team_spurs=$team_spurs." ";
+             fwrite($fp_spurs, $team_spurs);
+             
+             //fwrite($fp_barca,$space);
+     
+          }
+          fclose($fp_spurs);
+       }
+       if (!empty($_POST['leicester'])) {
+            $fp_city = fopen("leicester.txt","w");
+            file_put_contents("leicester.txt", " ");
+            fclose($fp_city);
+            $fp_city = fopen("leicester.txt","a");
+            foreach ($_POST['leicester'] as $team_city) {
+              $team_city=$team_city." "; 
+              fwrite($fp_city, $team_city);
+              
+              //fwrite($fp_real,$space);
+       }
+
+         fclose($fp_city);
+
+
+
+       }
+       header('Location:/miniproj/call_python.php');
+
+
+   }
+
+ ?>
+
+ <div class="background">
+          <video id="background-video" preload="auto" autoplay="true" loop="loop" muted="muted" >
+          <source src="Cristiano Ronaldo.mp4" type="video/mp4">
+              Video not supported
+          </video>
+          
+     </div>
+
+ <form class="team_select" action="spurs_vs_city.php" method="post">
+
+     	<table align="left" cellspacing="50" >
+
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="HarryKane">Harry Kane(ST)(85)
+     			</td>
+
+     		</tr>
+
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="NacerChadli">Nacer Chadli(LM)(79)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="ClintonN'jlie">Clinton N'jlie(LW)(72)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="NathanOduwa">Nathan Oduwa(LM)(69)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="AnthonyGeorgiou">Anthony Georgiou(LM)(60)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="CyGoddard">Cy Goddard(LM)(62)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="EricDier">Eric Dier(CDM)(80)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="ChrisitianEriksen">Chrisitian Eriksen(CDM)(80)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="DeleAlli">Dele Alli(CAM)(82)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="NabilBentaleb">Nabil Bentaleb(CM)(78)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="HarryWinks">Harry Winks(RM)(67)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="TomCarroll">Tom Carroll(CM)(75)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="RyanMason">Ryan Mason(CAM)(77)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="LukeAmos">Luke Amos(CM)(60)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="EmmanuelSonupe">Emmanuel Sonupe(CM)(61)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="HarryWinks">Harry Winks(RM)(67)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="WilliamMiller">William Miller(RM)(63)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="JoshOnomah">Josh Onomah(RM)(74)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="HeungMinSon">Heung Min Son(RM)(79)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="HarryWinks">Harry Winks(RM)(67)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="BenDavies">Ben Davies(LB)(79)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="KyleWalker-Peters">Kyle Walker- Peters(LB)(62)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="JanVetonghen">Jan Vetonghen(LCB)(82)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="DannyRose">Danny Rose(LB)(80)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="CameronCarte-Vickers">Cameron Carte-Vickers(CB)(65)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="ChristisnMaghoma">Christisn Maghoma(CB)(63)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="KevinWimmer">Kevin Wimmer(CB)(80)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="KyleWalker">Kyle Walker(RB)(79)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="TobyAlderweireld">Toby Alderweireld(RCB)(83)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="KieranTrippier">Kieran Trippier(RB)(77)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="LukeMcGee">Luke McGee(GK)(66)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="HugoLloris">Hugo Lloris(GK)(85)
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="MochaelVorm">Mochael Vorm(GK)(80)
+
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="ClaudioBravo">Claudio Bravo(GK)(83)
+
+
+     			</td>
+
+     		</tr>
+     		<tr>
+     			<td>
+					<input type="checkbox" name="spurs[]" value="MarcAndreterStegen">Marc Andre-ter Stegen(GK)(82)
+
+     			</td>
+
+     		</tr>
+
+
+
+     	</table>
+
+     	<table align="right" cellspacing="50" >
+     		<tr>
+     			<td>
+     				Jamie Vardy(ST)(79)<input type="checkbox"	name="leicester[]" value="JamieVardy">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Shinji Okazaki(ST)(76)<input type="checkbox"	name="leicester[]" value="ShinjiOkazaki">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Leonarda Ulloa(ST)(73)<input type="checkbox"	name="leicester[]" value="LeonardaUlloa">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				N'Golo Kante(LCM)(83)<input type="checkbox"	name="leicester[]" value="N'GoloKante">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Marc Albrighton(LM)(77)<input type="checkbox"	name="leicester[]" value="MarcAlbrighton">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Demarai Gray(LM)(72)<input type="checkbox"	name="leicester[]" value="DemaraiGray">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Riyad Mahrez(RM)(85)<input type="checkbox"	name="leicester[]" value="RiyadMahrez">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Daniel Amartey(CM)(75)<input type="checkbox"	name="leicester[]" value="DanielAmartey	">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Danny Drinkwater(RCM)(78)<input type="checkbox"	name="leicester[]" value="DannyDrinkwater">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Robert Huth(LCB)(78)<input type="checkbox"	name="leicester[]" value="RobertHuth">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Christian Fuchs(LB)(76)<input type="checkbox"	name="leicester[]" value="ChristianFuchs">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Danny Simpson(RB)(72)<input type="checkbox"	name="leicester[]" value="DannySimpson">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Wes Morgan(RCB)(78)<input type="checkbox"	name="leicester[]" value="WesMorgan">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Kasper Schmeichel(GK)(78)<input type="checkbox"	name="leicester[]" value="KasperSchmeichel">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Jeffrey Schlupp(LB)(75)<input type="checkbox"	name="leicester[]" value="JeffreySchlupp">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				RonRobert Zieler(GK)(82)<input type="checkbox"	name="leicester[]" value="RonRobertZieler">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Luis Hernanez(CB)(79)<input type="checkbox"	name="leicester[]" value="LuisHernanez">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Andy King(CM)(73)<input type="checkbox"	name="leicester[]" value="AndyKing">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Nampalys Mendy(CDM)(84)<input type="checkbox"	name="leicester[]" value="NampalysMendy">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Carvajal(RB)(82)<input type="checkbox"	name="leicester[]" value="Carvajal">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Pepe(RCB)(84)<input type="checkbox"	name="leicester[]" value="Pepe">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Alvaro Tejero(RB)(61)<input type="checkbox"	name="leicester[]" value="AlvaroTejero">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Danilo(RB)(80)<input type="checkbox"	name="leicester[]" value="Danilo">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Raphael Varane(CB)(82)<input type="checkbox"	name="leicester[]" value="RaphaelVarane">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Philipp Lienhart(CB)(64)<input type="checkbox"	name="leicester[]" value="PhilippLienhart">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Sergio Ramos(LCB)(87)<input type="checkbox"	name="leicester[]" value="SergioRamos">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Marcelo(LB)(83)<input type="checkbox"	name="leicester[]" value="Marcelo">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				NachoFernandez(LCB)(77)<input type="checkbox"	name="leicester[]" value="NachoFernandez">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Abner(LB)(63)<input type="checkbox"	name="leicester[]" value="Abner">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Arbeloa(LB)(65)<input type="checkbox"	name="leicester[]" value="Arbeloa">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Kiko Casilla(GK)(80)<input type="checkbox"	name="leicester[]" value="KikoCasilla">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Ruben Yanez(GK)(65)<input type="checkbox"	name="leicester[]" value="RubenYanez">
+     			</td>
+     		</tr>
+     		<tr>
+     			<td>
+     				Keylor Navas(GK)(82)<input type="checkbox"	name="leicester[]" value="KeylorNavas">
+     			</td>
+     		</tr>
+     			
+     	</table>
+     	<input type="submit" name="Submit" />
+
+
+
+     	</form>
+</body>
+</html>
